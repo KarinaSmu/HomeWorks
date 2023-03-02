@@ -7,6 +7,19 @@
 #     3
 #     -> 1
 
+import random
+print("Введите длину массива")
+l = int(input())
+print("искомое число")
+num = int(input())
+count=0
+list_1=[random.randint(0,10) for i in range(l)]
+for i in range(l):
+    if list_1[i]== num:
+        count+=1
+print(list_1)
+print(f" {count} раз встретилось {num} число ")
+
 # Задача 18: Требуется найти в массиве из случайных чисел(от 1 до n) самый близкий по величине элемент к заданному числу X. 
 # Пользователь в первой строке вводит натуральное число N – количество элементов в массиве. Последняя строка содержит число X
 # *Пример:*
@@ -16,6 +29,42 @@
 #     6
 #     -> 5
 
+print("Введите длину массива")
+m = int(input())
+print("загадайте число:)")
+Number = int(input())
+list_2=[random.randint(-100,100) for i in range(m)]
+print(list_2)
+temp=int
+res=list_2[0]
+
+if (Number<0 and list_2[0]<0) or (Number>0 and list_2[0]>0):
+    check=Number-list_2[0]
+elif Number<=0:
+    check=Number*(-1)-list_2[0]
+elif list_2[0]<=0:
+    check=Number*-list_2[0]*(-1)
+
+if check<0: check*=-1
+
+for i in range(1,len(list_2)):
+
+    if (Number<0 and list_2[i]<0) or (Number>0 and list_2[i]>0):
+        temp=Number-list_2[i]
+    elif Number<=0:
+        temp=Number*-1-list_2[i]
+    elif list_2[i]<=0:
+        temp=Number*-list_2[i]*-1
+
+    if temp<0: temp*=-1
+
+    if temp<check:
+        check=temp
+        res=list_2[i]
+
+print(f" ближайшее по величине число к заданному {res} число ")
+
+
 # *Задача 20: * В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. В случае с английским алфавитом очки распределяются так:
 # A, E, I, O, U, L, N, S, T, R – 1 очко; D, G – 2 очка; B, C, M, P – 3 очка; F, H, V, W, Y – 4 очка; K – 5 очков; J, X – 8 очков; Q, Z – 10 очков. 
 # А русские буквы оцениваются так: А, В, Е, И, Н, О, Р, С, Т – 1 очко; Д, К, Л, М, П, У – 2 очка; Б, Г, Ё, Ь, Я – 3 очка; Й, Ы – 4 очка; Ж, З, Х, Ц, Ч – 5 очков; Ш, Э, Ю – 8 очков; 
@@ -24,3 +73,29 @@
 # *Пример:*
 # ноутбук
 #     12
+
+arr_1=[ 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R', 'А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т',
+      'D', 'G', 'Д', 'К', 'Л', 'М', 'П', 'У',
+      'B', 'C', 'M', 'P', 'Б', 'Г', 'Ё', 'Ь', 'Я',
+      'F', 'H', 'V', 'W', 'Y', 'Й', 'Ы',
+      'K', 'Ж', 'З', 'Х', 'Ц', 'Ч',
+      'J', 'X', 'Ш', 'Э', 'Ю',
+      'Q', 'Z', 'Ф', 'Щ', 'Ъ']
+
+print("Напишите слово")
+user_word = (input()).upper()
+word=list(user_word)
+sum=0
+for i in range(0,len(arr_1)):
+    for j in range(0,len(word)):
+        if arr_1[i]==word[j]:
+            if i<19: sum+=1
+            elif i>18 and i<27: sum+=2
+            elif i>26 and i<36: sum+=3
+            elif i>35 and i<43: sum+=4
+            elif i>42 and i<49: sum+=5
+            elif i>48 and i<54: sum+=8
+            else : sum+=10
+        else: sum+=0
+print(sum)
+
