@@ -32,29 +32,29 @@ print(f" {count} раз встретилось {num} число ")
 print("Введите длину массива")
 m = int(input())
 print("загадайте число:)")
-Number = int(input())
+number = int(input())
 list_2=[random.randint(-100,100) for i in range(m)]
 print(list_2)
 temp=int
 res=list_2[0]
 
-if (Number<0 and list_2[0]<0) or (Number>0 and list_2[0]>0):
-    check=Number-list_2[0]
-elif Number<=0:
-    check=Number*(-1)-list_2[0]
+if (number<0 and list_2[0]<0) or (number>0 and list_2[0]>0):
+    check=number-list_2[0]
+elif number<=0:
+    check=number*(-1)-list_2[0]
 elif list_2[0]<=0:
-    check=Number*-list_2[0]*(-1)
+    check=number*-list_2[0]*(-1)
 
 if check<0: check*=-1
 
 for i in range(1,len(list_2)):
 
-    if (Number<0 and list_2[i]<0) or (Number>0 and list_2[i]>0):
-        temp=Number-list_2[i]
-    elif Number<=0:
-        temp=Number*-1-list_2[i]
+    if (number<0 and list_2[i]<0) or (number>0 and list_2[i]>0):
+        temp=number-list_2[i]
+    elif number<=0:
+        temp=number*-1-list_2[i]
     elif list_2[i]<=0:
-        temp=Number*-list_2[i]*-1
+        temp=number*-list_2[i]*-1
 
     if temp<0: temp*=-1
 
