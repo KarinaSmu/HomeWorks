@@ -9,7 +9,10 @@ print("Введите степень")
 b = int(input())
 
 def num_exp(a, b):
-    if b == 1: return (a)
+    string="выражение не имеет смысла"
+    if b==0 and a==0: return (string)
+    elif b == 0: return (1)
+    elif b == 1: return (a)
     else: return a*(num_exp (a, b-1))
 
 print(num_exp (a, b))
